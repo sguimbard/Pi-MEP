@@ -19,7 +19,7 @@ conda activate pimep
 
 wget -r -np -nH --cut-dirs=1 -A "*.nc" -P data/ https://pimep.ifremer.fr/diffusion/mask/
 
-## Download the all "reduced" Match-up NetCDF files (33GB)
+## Download all the "reduced" Match-up NetCDF files (33GB)
 
 wget -r -np -nH --cut-dirs=1 -A "*.nc" -P data/ https://pimep.ifremer.fr/diffusion/data_concat/
 

@@ -5,7 +5,7 @@ data/*
 !data/.gitkeep
 .vscode/
 # Ignore outputs
-output/
+output/*
 *.nc
 !output/.gitkeep
 
