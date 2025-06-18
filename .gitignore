@@ -7,5 +7,7 @@ data/*
 # Ignore outputs
 output/
 *.nc
+!output/.gitkeep
+
 # macOS metadata
 .DS_Store

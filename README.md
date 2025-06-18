@@ -1,6 +1,6 @@
-# Jupyter Project Template
+# Pi-MEP Jupyter-based projects
 
-A template for organizing Jupyter-based projects.
+
 
 ## Structure
 
@@ -13,8 +13,13 @@ A template for organizing Jupyter-based projects.
 
 ```bash
 conda env create -f env.yml
-conda activate your-env-name
+conda activate pimep
 ```
 ## Download the regional masks
 
 wget -r -np -nH --cut-dirs=1 -A "*.nc" -P data/ https://pimep.ifremer.fr/diffusion/mask/
+
+## Download the all "reduced" Match-up NetCDF files (33GB)
+
+wget -r -np -nH --cut-dirs=1 -A "*.nc" -P data/ https://pimep.ifremer.fr/diffusion/data_concat/
+
