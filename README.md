@@ -1,4 +1,4 @@
-# Pi-MEP Jupyter-based projects
+# Pi-MEP Jupyter-based project
 
 
 
