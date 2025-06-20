@@ -1,13 +1,13 @@
-# Pi-MEP Jupyter-based project
+# Jupyter notebooks resources for the Pi-MEP project
 
-
+Please visit first the [Pi-MEP website](https://www.salinity-pimep.org/)
 
 ## Structure
 
 - `notebooks/`: analysis and visualization
 - `scripts/`: utility functions or data processing
 - `data/`: raw or downloaded data (not tracked in Git)
-- `output/`: figures and netcdf files produced by the notebooks 
+- `output/`: figures and netcdf files produced by the notebooks (not tracked in Git)
 
 ## Environment
 
