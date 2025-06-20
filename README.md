@@ -1,4 +1,4 @@
-# Jupyter notebooks resources for the Pi-MEP project
+# Jupyter Notebooks for Pi-MEP Satellite & In-situ Data Analysis
 
 Please visit first the [Pi-MEP website](https://www.salinity-pimep.org/)
 
