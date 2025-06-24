@@ -166,6 +166,122 @@ class PIMEPConfig:
             'line_width_default': 1,
             'grid_alpha': 0.3
         }
+        # Core in situ variables
+        core_vars = {
+            'DATE', 'LATITUDE', 'LONGITUDE', 'SSS', 'SST', 'SSS_DEPTH', 'DELAYED_MODE',
+            'PLATFORM_NUMBER', 'CYCLE_NUMBER', 'MLD'
+        }
+        
+        # Satellite product variables
+        satellite_vars = {
+            'DATE_Satellite_product', 'LATITUDE_Satellite_product', 'LONGITUDE_Satellite_product', 
+            'SSS_Satellite_product', 'SST_Satellite_product', 'Spatial_lags', 'Time_lags'
+        }
+        
+        # Environmental variables
+        env_vars = {
+            'DISTANCE_TO_COAST', 'DISTANCE_TO_ICE_EDGE', 'ROSSBY_RADIUS', 'BATHYMETRY_ETOPO1',
+            'SEA_ICE_CONCENTRATION', 'SLA'
+        }
+        
+        # Wind variables
+        wind_vars = {
+            'WIND_SPEED_ASCAT_daily', 'WIND_STRESS_X_CMEMS_6h', 'WIND_STRESS_Y_CMEMS_6h', 
+            'WIND_SPEED_CMEMS_6h', 'WIND_SPEED_MAXSS_1h', 'WIND_SPEED_CCMP_6h'
+        }
+        
+        # Precipitation variables
+        precip_vars = {
+            'RAIN_RATE_CMORPH_3h', 'RAIN_RATE_IMERG_30min', 'EVAPORATION_OAFLUX'
+        }
+        
+        # SSS climatology variables
+        sss_clim_vars = {
+            'SSS_ISAS', 'SSS_PCTVAR_ISAS', 'SSS_ISAS17', 'SSS_PCTVAR_ISAS17', 'SSS_ISAS20', 'SSS_PCTVAR_ISAS20',
+            'SSS_WOA18', 'SSS_STD_WOA18', 'SSS_WOA23', 'SSS_STD_WOA23', 'SSS_WOA23_025', 'SSS_STD_WOA23_025',
+            'SSS_SCRIPPS', 'SSS_IPRC', 'SSS_SSD_CMEMS', 'SSS_EN4', 'SSS_UNCERTAINTY_EN4', 'SSS_GLORYS'
+        }
+        
+        # Ocean color variables
+        color_vars = {
+            'CDM_GLOBCOLOUR', 'CHL1_GLOBCOLOUR'
+        }
+        
+        # Current variables
+        current_vars = {
+            'U_CMEMS_GLOBCURRENT', 'V_CMEMS_GLOBCURRENT', 'U_OSCAR_CURRENT', 'V_OSCAR_CURRENT'
+        }
+        
+        # SST variables
+        sst_vars = {
+            'SST_AVHRR', 'SST_OSTIA', 'SST_CMC', 'SST_RSS'
+        }
+        
+        # ERA5 variables
+        era5_vars = {
+            'ERA5_SHWW', 'ERA5_SWH', 'ERA5_PP1D', 'ERA5_MPWW', 'ERA5_U10', 'ERA5_V10', 
+            'ERA5_RELATIVE_HUMIDITY', 'ERA5_SST', 'ERA5_BOUNDARY_LAYER_HEIGHT', 
+            'ERA5_2m_TEMPERATURE', 'ERA5_MEAN_SEA_LEVEL_PRESSURE'
+        }
+        
+        # Model comparison variables
+        model_vars = {
+            'SSS_ECCO_RMSD_Aquarius_Argo', 'SSS_ECCO_RMSD_SMAP_Argo', 'SSS_ECCO_RMSD_SMOS_Argo', 
+            'SSS_GLORYS_AT_ARGO_DEPTH',
+            'SSS_MEAN_GLORYS_AT_Satellite_product_resolution',
+            'SSS_STD_GLORYS_AT_Satellite_product_resolution',
+            'SSS_MEAN_GLORYS_AT_Satellite_product_temporal_resolution',
+            'SSS_STD_GLORYS_AT_Satellite_product_temporal_resolution',
+            'SSS_MEAN_GLORYS_AT_Satellite_product_spatial_resolution',
+            'SSS_STD_GLORYS_AT_Satellite_product_spatial_resolution'
+        }
+        
+        # Index variables
+        index_vars = {'PIMEP_INDEX'}
+        
+        # Combine all variables
+        self.coloc_variables = (core_vars | satellite_vars | env_vars | wind_vars | 
+                               precip_vars | sss_clim_vars | color_vars | current_vars | 
+                               sst_vars | era5_vars | model_vars | index_vars)
+        
+        # Also store categorized versions for easy access
+        self.variable_categories = {
+            'core': core_vars,
+            'satellite': satellite_vars,
+            'environmental': env_vars,
+            'wind': wind_vars,
+            'precipitation': precip_vars,
+            'sss_climatology': sss_clim_vars,
+            'ocean_color': color_vars,
+            'currents': current_vars,
+            'sst': sst_vars,
+            'era5': era5_vars,
+            'model_comparison': model_vars,
+            'indices': index_vars
+        }
+        mdb_report_figure_name = {
+            'DeltaSSS-vs-Depth.png','DeltaSSS-vs-Dist2coast.png','DeltaSSS-vs-RR.png','DeltaSSS-vs-SIC.png',
+            'DeltaSSS-vs-sss.png','DeltaSSS-vs-sst.png','DeltaSSS-vs-ws.png','Dt-distribution.png',
+            'Dx-distribution.png','Histogram-SSS-SAT-minus-INSITU-C1.png','Histogram-SSS-SAT-minus-INSITU-C2.png',
+            'Histogram-SSS-SAT-minus-INSITU-C3.png','Histogram-SSS-SAT-minus-INSITU-C4.png',
+            'Histogram-SSS-SAT-minus-INSITU-C5.png','Histogram-SSS-SAT-minus-INSITU-C6.png',
+            'Number-of-SSS-vs-dist2coast.png','Number-of-SSS-vs-time.png','PRES-distribution.png',
+            'Scatterplot-SSSdensity-Latband-0-20.png','Scatterplot-SSSdensity-Latband-0-80.png',
+            'Scatterplot-SSSdensity-Latband-20-40.png','Scatterplot-SSSdensity-Latband-40-60.png',
+            'Scatterplot-SSSdensity.png','Scatterplot-SSSdiff-vs-Time-C1.png',
+            'Scatterplot-SSSdiff-vs-Time-Latband-0-20.png','Scatterplot-SSSdiff-vs-Time-Latband-0-80.png',
+            'Scatterplot-SSSdiff-vs-Time-Latband-20-40.png','Scatterplot-SSSdiff-vs-Time-Latband-40-60.png',
+            'Scatterplot-SSSdiff-vs-Time.png','SSS-INSITU-distribution.png','SSS-SAT-distribution.png',
+            'Time-Mean-PRES.png','Time-Mean-SSS-INSITU.png','Time-Mean-SSS-SAT-minus-INSITU-C1.png',
+            'Time-Mean-SSS-SAT-minus-INSITU-C2.png','Time-Mean-SSS-SAT-minus-INSITU-C3.png',
+            'Time-Mean-SSS-SAT-minus-INSITU-C4.png','Time-Mean-SSS-SAT-minus-INSITU-C5.png',
+            'Time-Mean-SSS-SAT-minus-INSITU-C6.png','Time-Mean-SSS-SAT-minus-INSITU.png',
+            'Time-Mean-SSS-SAT.png','Time-Number-SSS.png','Time-STD-SSS-INSITU.png',
+            'Time-STD-SSS-SAT-minus-INSITU.png','Time-STD-SSS-SAT.png','Zonally-averaged-time-mean-SSS.png'
+        } 
+        self.figure_names = {
+            'mdb_report': mdb_report_figure_name
+        }
         
         # File paths and naming conventions
         self.file_settings = {
@@ -174,6 +290,18 @@ class PIMEPConfig:
             'output_directory': '../output/figures',
             'data_directory': '../data',
             'temp_directory': '../temp'
+        }
+        self.url = {
+            'pimep_https': 'https://pimep.ifremer.fr/diffusion/',
+            'pimep_analyses_mdb-database_https': 'https://pimep.ifremer.fr/diffusion/analyses/mdb-database/',
+            'pimep_analyses_spectra_https': 'https://pimep.ifremer.fr/diffusion/analyses/spectra/',
+            'pimep_analyses_triple-collocation_https': 'https://pimep.ifremer.fr/diffusion/analyses/triple-collocation/',
+            'pimep_data_https': 'https://pimep.ifremer.fr/diffusion/data/',
+            'pimep_data_concat_https': 'https://pimep.ifremer.fr/diffusion/data_concat/',
+            'pimep_region_masks':'https://pimep.ifremer.fr/diffusion/mask/',
+            'pimep_ftp': 'ftp://ftp.ifremer.fr/ifremer/cersat/pimep/diffusion/',
+            'pimep_analyses_ftp': 'ftp://pimep.ifremer.fr/diffusion/analyses/',
+            'pimep_data_ftp': 'ftp://pimep.ifremer.fr/diffusion/data/'
         }
         
         # Analysis settings
@@ -186,7 +314,7 @@ class PIMEPConfig:
             'outlier_iqr_factor': 1.5,
             'correlation_threshold': 0.7,
             'time_range_start': '2010-01-01',
-            'time_range_end': '2024-12-31'
+            'time_range_end': '2025-12-31'
         }
     
     # Getter methods for mappings
